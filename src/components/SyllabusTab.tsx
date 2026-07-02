@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calculator, BrainCircuit, Languages, Globe, ChevronDown, ChevronUp, CheckCircle, BarChart3, BookOpen, Newspaper } from 'lucide-react';
+import { Calculator, BrainCircuit, Languages, Globe, Map, ChevronDown, ChevronUp, CheckCircle, BarChart3, BookOpen, Newspaper } from 'lucide-react';
 import { SyllabusSection } from '../types';
 import CurrentAffairsTab from './CurrentAffairsTab';
 
@@ -9,61 +9,98 @@ export default function SyllabusTab() {
     quant: true,
     reasoning: false,
     english: false,
-    ga: false
+    ga: false,
+    state: false
   });
 
   const [sections, setSections] = useState<SyllabusSection[]>([
     {
       id: 'quant',
-      title: 'Quantitative Aptitude',
+      title: 'Quantitative Aptitude (Mathematics)',
       iconName: 'quant',
-      mastery: 60,
+      mastery: 50,
       topics: [
-        { id: 'q1', name: 'Number Systems', completed: true },
-        { id: 'q2', name: 'Algebra & Equations', completed: true },
-        { id: 'q3', name: 'Percentages & Ratio', completed: true },
-        { id: 'q4', name: 'Geometry & Mensuration', completed: false },
-        { id: 'q5', name: 'Data Interpretation', completed: false }
+        { id: 'q1', name: 'Number System (HCF, LCM, Divisibility & Surds)', completed: true },
+        { id: 'q2', name: 'Simplification, Fractions, Power & Indices', completed: true },
+        { id: 'q3', name: 'Percentage, Profit, Loss & Discount', completed: true },
+        { id: 'q4', name: 'Ratio & Proportion, Mixture & Alligation', completed: true },
+        { id: 'q5', name: 'Average, Age Problems & Partnership', completed: true },
+        { id: 'q6', name: 'Time, Speed & Distance (Trains, Boats, Races)', completed: false },
+        { id: 'q7', name: 'Time & Work, Pipes & Cisterns', completed: true },
+        { id: 'q8', name: 'Basic Algebra & Quadratic Equations', completed: false },
+        { id: 'q9', name: 'Geometry (Lines, Angles, Triangles, Circles)', completed: false },
+        { id: 'q10', name: 'Mensuration 2D & 3D (Area, Surface Area & Volume)', completed: false },
+        { id: 'q11', name: 'Trigonometry (Ratios, Identities, Heights & Distances)', completed: false },
+        { id: 'q12', name: 'Data Interpretation (Bar, Pie, Line Graphs & Tables)', completed: false }
       ]
     },
     {
       id: 'reasoning',
-      title: 'Logical Reasoning',
+      title: 'Logical Reasoning & General Intelligence',
       iconName: 'reasoning',
-      mastery: 25,
+      mastery: 45,
       topics: [
-        { id: 'r1', name: 'Syllogism', completed: true },
-        { id: 'r2', name: 'Blood Relations', completed: false },
-        { id: 'r3', name: 'Seating Arrangement', completed: false },
-        { id: 'r4', name: 'Critical Reasoning', completed: false }
+        { id: 'r1', name: 'Analogy & Classification (Verbal & Figural)', completed: true },
+        { id: 'r2', name: 'Series (Number, Alphanumeric & Letter)', completed: true },
+        { id: 'r3', name: 'Coding-Decoding & Alphabet Test', completed: true },
+        { id: 'r4', name: 'Blood Relations & Family Tree', completed: true },
+        { id: 'r5', name: 'Direction & Distance Sense Test', completed: false },
+        { id: 'r6', name: 'Syllogism (Venn Diagram Method)', completed: true },
+        { id: 'r7', name: 'Seating Arrangement (Linear, Circular, Row)', completed: false },
+        { id: 'r8', name: 'Puzzles (Scheduling, Floor & Comparison-based)', completed: false },
+        { id: 'r9', name: 'Mathematical Operations & Inequalities', completed: false },
+        { id: 'r10', name: 'Non-Verbal (Paper Folding, Mirror/Water Images, Cubes)', completed: false },
+        { id: 'r11', name: 'Data Sufficiency, Cause & Effect, Assumptions', completed: false }
       ]
     },
     {
       id: 'english',
-      title: 'English Language',
+      title: 'English Language & Comprehension',
       iconName: 'english',
-      mastery: 50,
+      mastery: 63,
       topics: [
-        { id: 'e1', name: 'Reading Comprehension', completed: true },
-        { id: 'e2', name: 'Vocabulary & Grammar', completed: true },
-        { id: 'e3', name: 'Sentence Completion', completed: false },
-        { id: 'e4', name: 'Cloze Test', completed: false }
+        { id: 'e1', name: 'Reading Comprehension (Passages & Themes)', completed: true },
+        { id: 'e2', name: 'Cloze Test & Fill in the Blanks', completed: true },
+        { id: 'e3', name: 'Error Spotting (Grammar Rules, Pronoun, Prepositions)', completed: true },
+        { id: 'e4', name: 'Sentence Improvement & Phrase Replacement', completed: true },
+        { id: 'e5', name: 'Para Jumbles & Sentence Rearrangement', completed: false },
+        { id: 'e6', name: 'Synonyms, Antonyms & One Word Substitutions', completed: true },
+        { id: 'e7', name: 'Idioms, Phrases & Spelling Corrections', completed: false },
+        { id: 'e8', name: 'Active/Passive Voice & Direct/Indirect Narration', completed: false }
       ]
     },
     {
       id: 'ga',
-      title: 'General Awareness',
+      title: 'General Awareness (GK & General Science)',
       iconName: 'ga',
-      mastery: 0,
+      mastery: 50,
       topics: [
-        { id: 'ga1', name: 'Current Affairs', completed: false },
-        { id: 'ga2', name: 'Static GK', completed: false },
-        { id: 'ga3', name: 'Economy & Banking', completed: false }
+        { id: 'ga1', name: 'History (Ancient, Medieval & Modern Indian Freedom Struggle)', completed: true },
+        { id: 'ga2', name: 'Geography (Indian Physical, Climate & World Resources)', completed: true },
+        { id: 'ga3', name: 'Indian Polity (Preamble, Fundamental Rights & Parliament)', completed: true },
+        { id: 'ga4', name: 'Indian Economy (Inflation, Banking, Union Budget, Five Year Plans)', completed: false },
+        { id: 'ga5', name: 'General Science (Basic Physics, Chemistry & Biology)', completed: true },
+        { id: 'ga6', name: 'Static GK (National Parks, Rivers, Dances, Books, Awards)', completed: false },
+        { id: 'ga7', name: 'Current Affairs (National, International & Key Govt Schemes)', completed: false },
+        { id: 'ga8', name: 'Computer Aptitude & Information Technology Awareness', completed: false }
+      ]
+    },
+    {
+      id: 'state',
+      title: 'State Board Specific & Regional GK',
+      iconName: 'state',
+      mastery: 20,
+      topics: [
+        { id: 's1', name: 'History of Maharashtra & Social Reformers (Phule, Shahu, Ambedkar)', completed: true },
+        { id: 's2', name: 'Geography of Maharashtra (Rivers, Soils, Minerals & Western Ghats)', completed: false },
+        { id: 's3', name: 'State Administration & Panchayati Raj Structure', completed: false },
+        { id: 's4', name: 'State Board Textbooks Highlights (History, Geography, Civics)', completed: false },
+        { id: 's5', name: 'Maharashtra State Economy, Agriculture & Regional Welfare Schemes', completed: false }
       ]
     }
   ]);
 
-  const [globalProgress, setGlobalProgress] = useState(38);
+  const [globalProgress, setGlobalProgress] = useState(48);
 
   const toggleSection = (id: string) => {
     setExpandedSections(prev => ({
@@ -114,6 +151,7 @@ export default function SyllabusTab() {
       case 'reasoning': return <BrainCircuit className="h-5 w-5 text-primary" />;
       case 'english': return <Languages className="h-5 w-5 text-primary" />;
       case 'ga': return <Globe className="h-5 w-5 text-primary" />;
+      case 'state': return <Map className="h-5 w-5 text-primary" />;
       default: return <Calculator className="h-5 w-5 text-primary" />;
     }
   };

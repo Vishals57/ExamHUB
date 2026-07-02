@@ -15,19 +15,9 @@ import { X, CheckCircle, GraduationCap, Shield } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
-  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [showPrivacy, setShowPrivacy] = useState<boolean>(false);
   const [customMinutes, setCustomTime] = useState(25);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (darkMode) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
@@ -50,12 +40,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background dark:bg-on-background text-on-surface dark:text-inverse-on-surface transition-colors duration-200">
+    <div className="min-h-screen bg-background text-on-surface transition-colors duration-200">
       
       {/* Universal Sticky App Header */}
       <Header 
-        darkMode={darkMode} 
-        onToggleDarkMode={() => setDarkMode(!darkMode)} 
         onOpenSettings={() => setShowSettings(true)}
       />
 
@@ -120,8 +108,8 @@ export default function App() {
               <div className="bg-surface-container/40 p-4 rounded-xl border border-outline-variant/20 space-y-2 text-xs text-on-surface-variant leading-relaxed">
                 <span className="font-bold text-primary block">Candidate Profile</span>
                 <p>Name: <strong className="text-on-surface">Sarah Mitchell</strong></p>
-                <p>Curriculum Focus: <strong className="text-on-surface">UPSC CSE &amp; SSC GCL</strong></p>
-                <p>Streak: <strong className="text-primary font-semibold">15 study days active</strong></p>
+                <p>Curriculum Focus: <strong className="text-on-surface">UPSC CSE &amp; SSC CGL</strong></p>
+                <p>Weekly Study: <strong className="text-primary font-semibold">33.7 Hours Active</strong></p>
               </div>
             </div>
 

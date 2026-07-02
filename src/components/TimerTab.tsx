@@ -1,6 +1,49 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCw, Play, Pause, MoreVertical, Flame, CheckSquare, Clock, Plus, Edit2, X, Check } from 'lucide-react';
+import { RefreshCw, Play, Pause, MoreVertical, Flame, CheckSquare, Clock, Plus, Edit2, X, Check, Volume2, VolumeX } from 'lucide-react';
 import { Task, UserStats } from '../types';
+
+const playSoftChime = () => {
+  try {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
+    const now = ctx.currentTime;
+
+    // Harmonic chime note 1 (E5)
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(659.25, now);
+    
+    gain1.gain.setValueAtTime(0.001, now);
+    gain1.gain.exponentialRampToValueAtTime(0.25, now + 0.05);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 1.0);
+
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+
+    // Harmonic chime note 2 (A5)
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(880.00, now + 0.12);
+
+    gain2.gain.setValueAtTime(0.001, now + 0.12);
+    gain2.gain.exponentialRampToValueAtTime(0.25, now + 0.17);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
+
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+
+    osc1.start(now);
+    osc1.stop(now + 1.1);
+
+    osc2.start(now + 0.12);
+    osc2.stop(now + 1.5);
+  } catch (error) {
+    console.warn('Web Audio chime failed to play:', error);
+  }
+};
 
 export default function TimerTab() {
   const [mode, setMode] = useState<'study' | 'short' | 'long'>('study');
@@ -8,6 +51,7 @@ export default function TimerTab() {
   const [initialTime, setInitialTime] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showTaskModal, setShowTaskModal] = useState(false);
+  const [chimeEnabled, setChimeEnabled] = useState(true);
   
   // Stats
   const [stats, setStats] = useState<UserStats>({
@@ -21,8 +65,8 @@ export default function TimerTab() {
   // Active Task
   const [activeTask, setActiveTask] = useState<Task>({
     id: 't1',
-    title: 'Advanced Thermodynamics Chapter 4',
-    description: 'Focused on entropy calculations and heat transfer models.',
+    title: 'Quantitative Aptitude Practice (Time, Speed & Distance)',
+    description: 'Solving 15 high-yield sample problems on trains and boats.',
     category: 'Exam Prep',
     priority: 'Priority 1'
   });
@@ -58,6 +102,9 @@ export default function TimerTab() {
   }, [isRunning]);
 
   const handleTimerComplete = () => {
+    if (chimeEnabled) {
+      playSoftChime();
+    }
     // Increment sessions & focus hours
     alert('Time is up! Great focus session.');
     
@@ -208,7 +255,25 @@ export default function TimerTab() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-6 relative z-10">
+          <div className="flex items-center gap-4 relative z-10">
+            <button 
+              onClick={() => {
+                const newVal = !chimeEnabled;
+                setChimeEnabled(newVal);
+                if (newVal) {
+                  playSoftChime();
+                }
+              }}
+              className={`w-12 h-12 flex items-center justify-center rounded-full border transition-all cursor-pointer ${
+                chimeEnabled 
+                  ? 'border-primary/20 text-primary bg-primary/10 hover:bg-primary/20' 
+                  : 'border-outline-variant/40 text-on-surface-variant/50 bg-white/40 hover:bg-white/80'
+              }`}
+              title={chimeEnabled ? "Chime Enabled (Click to Disable & Test)" : "Chime Disabled (Click to Enable)"}
+            >
+              {chimeEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
+            </button>
+
             <button 
               onClick={resetTimer}
               className="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant/40 text-on-surface-variant bg-white/40 hover:bg-white/80 transition-colors cursor-pointer"

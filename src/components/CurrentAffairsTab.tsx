@@ -35,7 +35,7 @@ export default function CurrentAffairsTab() {
                 <h3 className="text-md font-bold text-primary">Daily Highlights</h3>
               </div>
               <span className="bg-primary-container text-on-primary-container text-[11px] font-bold px-3 py-1 rounded-full border border-primary-container/20">
-                Oct 24, 2023
+                July 02, 2026
               </span>
             </div>
 
@@ -48,10 +48,10 @@ export default function CurrentAffairsTab() {
                 </div>
                 <ul className="space-y-2.5 pl-4 list-disc text-sm text-on-surface leading-normal">
                   <li>
-                    The Union Cabinet approved the &lsquo;PM-Vidyalaxmi&rsquo; scheme to provide financial support to meritorious students for higher education.
+                    The Union Ministry of Education launched the &lsquo;PM-Vidyalaxmi&rsquo; Phase-II platform to fully digitize interest subvention for higher education loans.
                   </li>
                   <li>
-                    India and Oman signed a Memorandum of Understanding (MoU) for cooperation in the field of Information Technology.
+                    India and Oman successfully signed a comprehensive Bilateral Economic Partnership agreement to accelerate collaborative IT projects and semiconductor supply chains.
                   </li>
                 </ul>
               </div>
@@ -64,10 +64,10 @@ export default function CurrentAffairsTab() {
                 </div>
                 <ul className="space-y-2.5 pl-4 list-disc text-sm text-on-surface leading-normal">
                   <li>
-                    The 16th BRICS Summit concluded in Kazan, Russia, focusing on global security and economic cooperation.
+                    The 18th G20 Sherpa Meet concluded with unanimous focus on global climate-finance targets and AI ethics guidelines.
                   </li>
                   <li>
-                    FATF has removed several countries from its grey list following significant progress in AML/CFT measures.
+                    FATF officially announced the exclusion of three South Asian and African countries from its grey monitoring list following major updates in anti-money laundering mechanisms.
                   </li>
                 </ul>
               </div>
@@ -80,7 +80,7 @@ export default function CurrentAffairsTab() {
                 </div>
                 <ul className="space-y-2.5 pl-4 list-disc text-sm text-on-surface leading-normal">
                   <li>
-                    India&apos;s junior archery team secured 3 Gold medals at the Asian Archery Championships held in Bangkok.
+                    India&apos;s junior athletic team secured the highest-ever gold tally of 5 medals at the Asian Junior Track &amp; Field Championships in Bangkok.
                   </li>
                 </ul>
               </div>
@@ -111,19 +111,19 @@ export default function CurrentAffairsTab() {
 
             <div className="space-y-2">
               <button 
-                onClick={() => handleDownload('oct', 'October 2023 Digest')}
+                onClick={() => handleDownload('june_26', 'June 2026 Digest')}
                 className="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container/60 hover:bg-surface-container-high transition-colors border border-outline-variant/30 text-left cursor-pointer text-xs"
               >
-                <span className="font-bold text-on-surface">October 2023 Digest</span>
-                <Download className={`h-4 w-4 ${downloaded === 'oct' ? 'text-emerald-600 animate-bounce' : 'text-primary'}`} />
+                <span className="font-bold text-on-surface">June 2026 Digest</span>
+                <Download className={`h-4 w-4 ${downloaded === 'june_26' ? 'text-emerald-600 animate-bounce' : 'text-primary'}`} />
               </button>
 
               <button 
-                onClick={() => handleDownload('sep', 'September 2023 Digest')}
+                onClick={() => handleDownload('may_26', 'May 2026 Digest')}
                 className="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container/30 hover:bg-surface-container-high transition-colors border border-outline-variant/30 text-left cursor-pointer text-xs"
               >
-                <span className="font-semibold text-on-surface opacity-80">September 2023 Digest</span>
-                <Download className={`h-4 w-4 ${downloaded === 'sep' ? 'text-emerald-600 animate-bounce' : 'text-outline'}`} />
+                <span className="font-semibold text-on-surface opacity-80">May 2026 Digest</span>
+                <Download className={`h-4 w-4 ${downloaded === 'may_26' ? 'text-emerald-600 animate-bounce' : 'text-outline'}`} />
               </button>
             </div>
           </div>
@@ -155,31 +155,83 @@ export default function CurrentAffairsTab() {
 
           {/* Exam Alert Notifications */}
           <div className="glass-card rounded-2xl p-5 shadow-sm space-y-4">
-            <h3 className="text-sm font-bold text-primary flex items-center gap-2">
-              <Bell className="h-4 w-4" />
-              <span>Upcoming Exam Alerts</span>
-            </h3>
+            <div className="flex justify-between items-center">
+              <h3 className="text-sm font-bold text-primary flex items-center gap-2">
+                <Bell className="h-4 w-4 animate-swing" />
+                <span>Upcoming Exam Alerts (2026)</span>
+              </h3>
+              <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                Live Status
+              </span>
+            </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
+              {/* MPSC Rajyaseva */}
               <div className="flex gap-3 items-start border-b border-outline-variant/20 pb-3">
-                <div className="bg-on-tertiary-container/10 text-on-tertiary-container px-2.5 py-1.5 rounded-lg text-center min-w-[50px] border border-on-tertiary-container/10">
-                  <p className="text-[10px] font-bold uppercase tracking-wide">Nov</p>
-                  <p className="text-md font-extrabold leading-none mt-1">12</p>
+                <div className="bg-primary-container/20 text-primary px-2.5 py-1.5 rounded-lg text-center min-w-[55px] border border-primary-container/20">
+                  <p className="text-[10px] font-bold uppercase tracking-wide">Aug</p>
+                  <p className="text-md font-extrabold leading-none mt-1">23</p>
                 </div>
-                <div>
-                  <h4 className="text-xs font-bold text-on-surface">SSC CGL Tier II</h4>
-                  <p className="text-[11px] text-on-surface-variant mt-0.5">General Awareness preparation due</p>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <h4 className="text-xs font-bold text-on-surface truncate">MPSC State Services (Prelims)</h4>
+                    <span className="shrink-0 text-[9px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300 px-1.5 py-0.5 rounded">
+                      52 days left
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+                    Focus on Maharashtra history, social reformers, geography, and GS paper-1 state specifics.
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300">Revision Phase Active</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex gap-3 items-start">
-                <div className="bg-primary-container/10 text-primary px-2.5 py-1.5 rounded-lg text-center min-w-[50px] border border-primary-container/10">
-                  <p className="text-[10px] font-bold uppercase tracking-wide">Dec</p>
-                  <p className="text-md font-extrabold leading-none mt-1">05</p>
+              {/* SSC CGL Tier I */}
+              <div className="flex gap-3 items-start border-b border-outline-variant/20 pb-3">
+                <div className="bg-on-tertiary-container/10 text-on-tertiary-container px-2.5 py-1.5 rounded-lg text-center min-w-[55px] border border-on-tertiary-container/10">
+                  <p className="text-[10px] font-bold uppercase tracking-wide">Sep</p>
+                  <p className="text-md font-extrabold leading-none mt-1">10</p>
                 </div>
-                <div>
-                  <h4 className="text-xs font-bold text-on-surface">MPSC Prelims</h4>
-                  <p className="text-[11px] text-on-surface-variant mt-0.5">State current affairs focus</p>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <h4 className="text-xs font-bold text-on-surface truncate">SSC CGL 2026 (Tier I)</h4>
+                    <span className="shrink-0 text-[9px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 px-1.5 py-0.5 rounded">
+                      70 days left
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+                    Math speed-sprint practice recommended. Solve standard 25-question topic mock assessments.
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300">Application Status Released</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* UPSC Civil Services Mains */}
+              <div className="flex gap-3 items-start">
+                <div className="bg-secondary-container/20 text-secondary px-2.5 py-1.5 rounded-lg text-center min-w-[55px] border border-secondary-container/20">
+                  <p className="text-[10px] font-bold uppercase tracking-wide">Sep</p>
+                  <p className="text-md font-extrabold leading-none mt-1">18</p>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-1">
+                    <h4 className="text-xs font-bold text-on-surface truncate">UPSC Civil Services (Mains)</h4>
+                    <span className="shrink-0 text-[9px] font-bold bg-purple-100 text-purple-800 dark:bg-purple-950/50 dark:text-purple-300 px-1.5 py-0.5 rounded">
+                      78 days left
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-on-surface-variant mt-1 leading-normal">
+                    Descriptive answer writing evaluation focus. Study daily GS and Optional subjects.
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                    <span className="text-[10px] font-bold text-purple-700 dark:text-purple-300">DAF-I Form Registration</span>
+                  </div>
                 </div>
               </div>
             </div>
