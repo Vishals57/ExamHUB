@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Zenith Prep Design System Color Tokens */
+  --color-primary: #003527;
+  --color-primary-container: #064e3b;
+  --color-on-primary-container: #80bea6;
+  --color-primary-fixed-dim: #95d3ba;
+  
+  --color-secondary: #55615a;
+  --color-secondary-container: #d9e6dd;
+  --color-on-secondary-container: #5b6760;
+  --color-secondary-fixed-dim: #bdcac1;
+  --color-secondary-fixed: #d9e6dd;
+
+  --color-tertiary: #511f00;
+  --color-tertiary-container: #743000;
+  --color-on-tertiary-container: #ff975e;
+  --color-tertiary-fixed: #ffdbca;
+  --color-tertiary-fixed-dim: #ffb690;
+  --color-on-tertiary-fixed: #341100;
+  --color-on-tertiary-fixed-variant: #783200;
+
+  --color-surface: #f9f9ff;
+  --color-surface-dim: #cfdaf2;
+  --color-surface-bright: #f9f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f3ff;
+  --color-surface-container: #e7eeff;
+  --color-surface-container-high: #dee8ff;
+  --color-surface-container-highest: #d8e3fb;
+  --color-surface-variant: #d8e3fb;
+  --color-on-surface: #111c2d;
+  --color-on-surface-variant: #404944;
+
+  --color-background: #f9f9ff;
+  --color-on-background: #111c2d;
+
+  --color-inverse-surface: #263143;
+  --color-inverse-on-surface: #ecf1ff;
+  --color-inverse-primary: #95d3ba;
+
+  --color-outline: #707974;
+  --color-outline-variant: #bfc9c3;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+}
+
+/* Glassmorphism custom classes compatible with tailwindcss */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .glass-card {
+  background: rgba(17, 28, 45, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-effect {
+  background: rgba(17, 28, 45, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-tile-primary {
+  background: rgba(6, 78, 59, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-tile-secondary {
+  background: rgba(217, 230, 221, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-tile-secondary {
+  background: rgba(62, 73, 67, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-tile-tertiary {
+  background: rgba(255, 219, 202, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-tile-tertiary {
+  background: rgba(116, 48, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom visual adjustments */
+.timer-progress-ring {
+  transition: stroke-dashoffset 0.3s ease;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.progress-bar-fill {
+  transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-image: radial-gradient(circle at 10% 20%, rgba(149, 211, 186, 0.12) 0%, transparent 45%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 182, 144, 0.08) 0%, transparent 45%);
+  background-attachment: fixed;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ExamHub",
+  "description": "An interactive, high-fidelity exam preparation portal featuring Pomodoro Focus Timers, Syllabus Progress Tracking, Daily Quiz Simulators, Current Affairs Digests, and Rank Predictors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
