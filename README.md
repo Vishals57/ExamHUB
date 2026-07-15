@@ -6,7 +6,7 @@
 
 This contains everything you need to run your app locally.
 
-View your app in AI Studio: https://ai.studio/apps/3cec9134-6e8f-411f-b42e-ffa77ef5dce4
+View your app in AI Studio: [https://ai.studio/apps/3cec9134-6e8f-411f-b42e-ffa77ef5dce4](https://examhub-971763282543.asia-southeast1.run.app)
 
 ## Run Locally
 
